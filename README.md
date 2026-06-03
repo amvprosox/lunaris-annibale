@@ -27,7 +27,7 @@ mka bacon
 Output: `out/target/product/annibale/Lunaris-AOSP-annibale-*.zip`
 
 ## Notes
-- Vendor blobs sync from GitLab (ramshell688) via the manifest.
+- Vendor blobs sync from (ramshell688) via the manifest.
 - Singularity is re-pathed into Settings (see singularity.xml) - required for customization to work.
 - UltraHDR disabled in Aperture so the camera captures correctly.
 - Flash via OrangeFox (Format Data, then sideload). LineageOS recovery enforces SPL downgrade.
