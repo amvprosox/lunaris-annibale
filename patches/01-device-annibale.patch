@@ -1,0 +1,64 @@
+From e74239f1cff44ebfc05103d9152bed7553d75860 Mon Sep 17 00:00:00 2001
+From: Eoin <eoindatuganvillarin@gmail.com>
+Date: Wed, 3 Jun 2026 14:25:25 +0800
+Subject: [PATCH] annibale: amvprosox build edits
+
+Change-Id: I349f783ca31859e84dc32e0e30299bdc3ba5b302
+---
+ BoardConfig.mk      | 2 +-
+ device.mk           | 3 ---
+ lineage_annibale.mk | 7 ++++++-
+ 3 files changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 873101e..6716886 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -176,7 +176,7 @@ TARGET_USERIMAGES_USE_F2FS := true
+ ENABLE_VENDOR_RIL_SERVICE := true
+ 
+ # Security patch level
+-VENDOR_SECURITY_PATCH := 2025-11-01
++VENDOR_SECURITY_PATCH := 2025-12-01
+ 
+ # Sepolicy
+ include device/qcom/sepolicy_vndr/SEPolicy.mk
+diff --git a/device.mk b/device.mk
+index 5849670..defd5e2 100644
+--- a/device.mk
++++ b/device.mk
+@@ -153,9 +153,6 @@ PRODUCT_PACKAGES += \
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/configs/display/display_id_4630947238302509459.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947238302509459.xml
+ 
+-# Dolby
+-PRODUCT_PACKAGES += \
+-    XiaomiDolby
+ 
+ # DRM
+ PRODUCT_PACKAGES += \
+diff --git a/lineage_annibale.mk b/lineage_annibale.mk
+index 003b77e..2398702 100644
+--- a/lineage_annibale.mk
++++ b/lineage_annibale.mk
+@@ -19,7 +19,7 @@ TARGET_EXCLUDES_AUDIOFX := true
+ PRODUCT_NAME := lineage_annibale
+ PRODUCT_DEVICE := annibale
+ PRODUCT_BRAND := POCO
+-PRODUCT_MODEL := 2510DPC44G
++PRODUCT_MODEL := POCO F8 Pro
+ PRODUCT_MANUFACTURER := Xiaomi
+ 
+ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+@@ -27,3 +27,8 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+ PRODUCT_BUILD_PROP_OVERRIDES += \
+     BuildDesc="annibale-user 16 BP2A.250605.031.A3 OS3.0.8.0.WPKMIXM release-keys" \
+     BuildFingerprint="POCO/annibale_global/annibale:16/BP2A.250605.031.A3/OS3.0.8.0.WPKMIXM:user/release-keys"
++
++PRODUCT_PRODUCT_PROPERTIES += \
++    ro.lunaris.maintainer=amvprosox \
++    ro.lineage.maintainer=amvprosox
++PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
+-- 
+2.34.1
+

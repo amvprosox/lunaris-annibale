@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="gitlab" fetch="https://gitlab.com/" />
+  <project name="xiaomi-annibale/android_device_xiaomi_annibale"
+           path="device/xiaomi/annibale"
+           remote="github"
+           revision="lineage-23.2" />
+  <project name="xiaomi-annibale/android_device_xiaomi_annibale-kernel"
+           path="device/xiaomi/annibale-kernel"
+           remote="github"
+           revision="lineage-23.2" />
+  <project name="xiaomi-annibale/android_hardware_xiaomi"
+           path="hardware/xiaomi"
+           remote="github"
+           revision="lineage-23.2" />
+  <project name="ramshell688/proprietary_vendor_xiaomi_annibale"
+           path="vendor/xiaomi/annibale"
+           remote="gitlab"
+           revision="lineage-23.2"
+           clone-depth="1" />
+</manifest>

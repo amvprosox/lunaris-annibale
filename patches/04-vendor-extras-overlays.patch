@@ -1,0 +1,486 @@
+From c5b13a39cfa2094ea10214a693c30a7f515afb68 Mon Sep 17 00:00:00 2001
+From: Eoin <eoindatuganvillarin@gmail.com>
+Date: Wed, 3 Jun 2026 14:25:31 +0800
+Subject: [PATCH] extras: fix RRO overlay dex build
+
+---
+ config.mk                                      | 16 ++++++++--------
+ themes/SwitchSmile/Android.mk                  |  2 +-
+ themes/Volume/VolumeDoubleLayer/Android.mk     |  2 +-
+ themes/Volume/VolumeGradient/Android.mk        |  2 +-
+ themes/Volume/VolumeNeumorph/Android.mk        |  2 +-
+ themes/Volume/VolumeNeumorphOutline/Android.mk |  2 +-
+ themes/Volume/VolumeOutline/Android.mk         |  2 +-
+ themes/Volume/VolumeShadedLayer/Android.mk     |  2 +-
+ themes/clocks/HideClock/Android.mk             |  2 +-
+ themes/clocks/HideSmartSpace/Android.mk        |  2 +-
+ themes/clocks/SmartSpaceOffset/Android.mk      |  2 +-
+ themes/qs/BetterQS/Android.mk                  |  2 +-
+ themes/qs/QSAltShade/Android.mk                |  2 +-
+ themes/qs/QSCyberPunk/Android.mk               |  2 +-
+ themes/qs/QSDualTone/Android.mk                |  2 +-
+ themes/qs/QSMedia/Android.mk                   |  2 +-
+ themes/qs/QSNeumorph/Android.mk                |  2 +-
+ themes/qs/QSNoAlpha/Android.mk                 |  2 +-
+ themes/qs/QSOutline/Android.mk                 |  2 +-
+ themes/qs/QSReflected/Android.mk               |  2 +-
+ themes/qs/QSShaded/Android.mk                  |  2 +-
+ themes/qs/QSSurround/Android.mk                |  2 +-
+ themes/qs/QSThin/Android.mk                    |  2 +-
+ themes/qs/QSTwoToneAccent/Android.mk           |  2 +-
+ themes/qs/QSTwoToneAccentTrans/Android.mk      |  2 +-
+ 25 files changed, 32 insertions(+), 32 deletions(-)
+
+diff --git a/config.mk b/config.mk
+index bab019df..d567b188 100644
+--- a/config.mk
++++ b/config.mk
+@@ -164,8 +164,8 @@ PRODUCT_PACKAGES += \
+     AndroidBlackThemeOverlay \
+     ImmersiveNavigationOverlay
+ 
+-PRODUCT_PACKAGES += \
+-    SwitchSmile
++#PRODUCT_PACKAGES += \
++    #SwitchSmile
+ 
+ ifeq ($(TARGET_CUSTOM_UDFPS),true)
+     PRODUCT_PACKAGES += \
+@@ -174,13 +174,13 @@ ifeq ($(TARGET_CUSTOM_UDFPS),true)
+ endif
+ 
+ # QS
+-PRODUCT_PACKAGES += \
+-    QSMedia
++#PRODUCT_PACKAGES += \
++    #QSMedia
+ 
+-PRODUCT_PACKAGES += \
+-    HideSmartSpace \
+-    SmartSpaceOffset \
+-    HideClock
++#PRODUCT_PACKAGES += \
++    #HideSmartSpace \
++    #SmartSpaceOffset \
++    #HideClock
+ 
+ $(call inherit-product, vendor/extras/themes/bootanimation/bootanimation.mk)
+ 
+diff --git a/themes/SwitchSmile/Android.mk b/themes/SwitchSmile/Android.mk
+index 57910ad7..2c174566 100644
+--- a/themes/SwitchSmile/Android.mk
++++ b/themes/SwitchSmile/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := SwitchSmile
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := SwitchSmile
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/Volume/VolumeDoubleLayer/Android.mk b/themes/Volume/VolumeDoubleLayer/Android.mk
+index d6399b37..2818971d 100644
+--- a/themes/Volume/VolumeDoubleLayer/Android.mk
++++ b/themes/Volume/VolumeDoubleLayer/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeDoubleLayer
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeDoubleLayer
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/Volume/VolumeGradient/Android.mk b/themes/Volume/VolumeGradient/Android.mk
+index ed117988..1d9f261c 100644
+--- a/themes/Volume/VolumeGradient/Android.mk
++++ b/themes/Volume/VolumeGradient/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeGradient
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeGradient
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/Volume/VolumeNeumorph/Android.mk b/themes/Volume/VolumeNeumorph/Android.mk
+index 9f7b9ecd..907fc350 100644
+--- a/themes/Volume/VolumeNeumorph/Android.mk
++++ b/themes/Volume/VolumeNeumorph/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeNeumorph
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeNeumorph
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/Volume/VolumeNeumorphOutline/Android.mk b/themes/Volume/VolumeNeumorphOutline/Android.mk
+index 5e1a9618..aa143c64 100644
+--- a/themes/Volume/VolumeNeumorphOutline/Android.mk
++++ b/themes/Volume/VolumeNeumorphOutline/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeNeumorphOutline
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeNeumorphOutline
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/Volume/VolumeOutline/Android.mk b/themes/Volume/VolumeOutline/Android.mk
+index 5921b43d..94456e46 100644
+--- a/themes/Volume/VolumeOutline/Android.mk
++++ b/themes/Volume/VolumeOutline/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeOutline
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeOutline
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/Volume/VolumeShadedLayer/Android.mk b/themes/Volume/VolumeShadedLayer/Android.mk
+index 1996ab60..7efcb283 100644
+--- a/themes/Volume/VolumeShadedLayer/Android.mk
++++ b/themes/Volume/VolumeShadedLayer/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := VolumeShadedLayer
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := VolumeShadedLayer
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/clocks/HideClock/Android.mk b/themes/clocks/HideClock/Android.mk
+index 13240dbc..25df9eba 100644
+--- a/themes/clocks/HideClock/Android.mk
++++ b/themes/clocks/HideClock/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := HideClock
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := HideClock
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/clocks/HideSmartSpace/Android.mk b/themes/clocks/HideSmartSpace/Android.mk
+index fe23e6bc..64b957e0 100644
+--- a/themes/clocks/HideSmartSpace/Android.mk
++++ b/themes/clocks/HideSmartSpace/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := HideSmartSpace
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := HideSmartSpace
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/clocks/SmartSpaceOffset/Android.mk b/themes/clocks/SmartSpaceOffset/Android.mk
+index 1ba47996..51e5a0d3 100644
+--- a/themes/clocks/SmartSpaceOffset/Android.mk
++++ b/themes/clocks/SmartSpaceOffset/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := SmartSpaceOffset
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := SmartSpaceOffset
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/BetterQS/Android.mk b/themes/qs/BetterQS/Android.mk
+index 74f8db57..d5feadca 100644
+--- a/themes/qs/BetterQS/Android.mk
++++ b/themes/qs/BetterQS/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := BetterQS
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := BetterQS
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSAltShade/Android.mk b/themes/qs/QSAltShade/Android.mk
+index a77e07fa..7f76ec83 100644
+--- a/themes/qs/QSAltShade/Android.mk
++++ b/themes/qs/QSAltShade/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSAltShade
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSAltShade
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSCyberPunk/Android.mk b/themes/qs/QSCyberPunk/Android.mk
+index e66390c7..dd98352a 100644
+--- a/themes/qs/QSCyberPunk/Android.mk
++++ b/themes/qs/QSCyberPunk/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSCyberPunk
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSCyberPunk
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSDualTone/Android.mk b/themes/qs/QSDualTone/Android.mk
+index 93e56b6c..8aa09f16 100644
+--- a/themes/qs/QSDualTone/Android.mk
++++ b/themes/qs/QSDualTone/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSDualTone
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSDualTone
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSMedia/Android.mk b/themes/qs/QSMedia/Android.mk
+index 736ea22e..a04ed58b 100644
+--- a/themes/qs/QSMedia/Android.mk
++++ b/themes/qs/QSMedia/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSMedia
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSMedia
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSNeumorph/Android.mk b/themes/qs/QSNeumorph/Android.mk
+index 6162e125..b234ca05 100644
+--- a/themes/qs/QSNeumorph/Android.mk
++++ b/themes/qs/QSNeumorph/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSNeumorph
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSNeumorph
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSNoAlpha/Android.mk b/themes/qs/QSNoAlpha/Android.mk
+index 5ff31416..fc72a67f 100644
+--- a/themes/qs/QSNoAlpha/Android.mk
++++ b/themes/qs/QSNoAlpha/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSNoAlpha
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSNoAlpha
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSOutline/Android.mk b/themes/qs/QSOutline/Android.mk
+index 75512b5d..c60e5ebd 100644
+--- a/themes/qs/QSOutline/Android.mk
++++ b/themes/qs/QSOutline/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSOutline
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSOutline
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSReflected/Android.mk b/themes/qs/QSReflected/Android.mk
+index b5547b2f..514fbbc0 100644
+--- a/themes/qs/QSReflected/Android.mk
++++ b/themes/qs/QSReflected/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSReflected
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSReflected
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSShaded/Android.mk b/themes/qs/QSShaded/Android.mk
+index 2431e9b1..2b04bb2b 100644
+--- a/themes/qs/QSShaded/Android.mk
++++ b/themes/qs/QSShaded/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSShaded
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSShaded
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSSurround/Android.mk b/themes/qs/QSSurround/Android.mk
+index 74995272..5a62fcd2 100644
+--- a/themes/qs/QSSurround/Android.mk
++++ b/themes/qs/QSSurround/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSSurround
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSSurround
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSThin/Android.mk b/themes/qs/QSThin/Android.mk
+index 4a47d151..8915d7c2 100644
+--- a/themes/qs/QSThin/Android.mk
++++ b/themes/qs/QSThin/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSThin
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSThin
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+diff --git a/themes/qs/QSTwoToneAccent/Android.mk b/themes/qs/QSTwoToneAccent/Android.mk
+index 5d9e52b4..ee8dda5b 100644
+--- a/themes/qs/QSTwoToneAccent/Android.mk
++++ b/themes/qs/QSTwoToneAccent/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSTwoToneAccent
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSTwoToneAccent
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+\ No newline at end of file
+diff --git a/themes/qs/QSTwoToneAccentTrans/Android.mk b/themes/qs/QSTwoToneAccentTrans/Android.mk
+index 060bacd5..99f0e0d0 100644
+--- a/themes/qs/QSTwoToneAccentTrans/Android.mk
++++ b/themes/qs/QSTwoToneAccentTrans/Android.mk
+@@ -21,11 +21,11 @@ LOCAL_RRO_THEME := QSTwoToneAccentTrans
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+ 
+ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+ 
+ LOCAL_PACKAGE_NAME := QSTwoToneAccentTrans
+ LOCAL_SDK_VERSION := current
++LOCAL_HAS_CODE := false
+ 
+ include $(BUILD_RRO_PACKAGE)
+-- 
+2.34.1
+
